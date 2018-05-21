@@ -1,51 +1,10 @@
 .members .menu-area{background: #fff}
 .members .menu-button{background: #19a}
-body.members{background: #157 no-repeat; background-size: cover;}
-body{position: relative; scroll-behavior: unset;}
-.in-post-text{
-	display: none;
-	z-index: 50;
-}
-.add-post-form{
-	display: none;
-	width: 320px;
-	z-index: 50;
-	left: 20px;
-	top: 80px;
-}
-.animation{transition: 0.5s;}
-.text-area-y{
-	overflow-y: scroll;
-	transition: 0.5s!important;
-}
-.add-post-button{
-	width: 123px;
-	cursor: pointer;
-	border-radius: 3px;
-	top: 20px;
-	left: 20px;
-	text-align: center;
-	height: 43px;
-	background: #fff;
-	position: fixed;
-	z-index: 9999;
-	margin: 0;
-	padding: 11px;
-}
-.in-post-text .-title{
-	padding-bottom: 6px;
-	border-bottom: 3px solid #aaa;
-}
-.in-post-text .-inform{
-	height: 450px;
-	overflow-y: scroll;
-}
+body.members{background: linear-gradient(265deg, #1cf, #19a, #111) no-repeat; background-size: cover;}
+body{position: relative;}
 .-new-post{
 	height: auto;
 	width: 100%;
-}
-.delete-post {
-	border: 0;
 }
 .members .-tasks{
 	display: flex;
@@ -53,7 +12,7 @@ body{position: relative; scroll-behavior: unset;}
 .-new-post .buttons{
 	display: block;
 	margin: 0 auto;
-	width: 230px;
+	width: 240px;
 }
 .-new-post .h2{text-align: center}
 .-new-post input[type=text],
@@ -101,11 +60,11 @@ input[type=file]{display: none}
 	background-color: #118a99;
 }
 .product .img{
-	background-size:cover!important;
+	background-size:contain!important;
+	padding: 1px;
+	border: 2px solid #c8c8c8;
 	border-radius: 4px;
 	margin: 0 auto;
 	height: 300px;
-	transition: 0.3s;
 	width: 100%;
-	cursor:pointer;
 }
