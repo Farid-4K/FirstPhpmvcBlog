@@ -28,6 +28,9 @@
 	<div class="tab-content z-depth-1 full">
 		<a class="h2 a" href="/members/edit/">Добавить пост</a>
 	</div>
+	<div class="tab-content z-depth-1 full">
+		<div class="h3">Текст постов поддерживает форматирование<br>**жирный**, ____</div>
+	</div>
 </div>
 
 <div style="opacity: 0;display: none" class="ajaxpreview">
@@ -35,28 +38,15 @@
 	<div class="ajaxpreview-content z-depth-5"><br>
 		<?php if ($email_check): ?>
 			<div class="h4">На вашу почту отправлено письмо с подтверждением, перейдите по ссылке в письме для того что бы подтвердить свой аккаунт</div>
-			<?php else: ?>
-				<div class="h4">Почта подтверждена</div>
+		<?php else: ?>
+			<div class="h4">Почта подтверждена</div>
 		<?php endif;?>
 	</div>
 </div>
 <script>
-	$("#email").click(function (){
+$("#email").click(function (){
 		$(".ajaxpreview").show().animate({opacity:1},310,"swing");
-		/*
-		var id = $(this).attr("id");
-		$.ajax({
-			type: "POST",
-			url: "/ajaxpreviewpost",
-			data: 'token='+id,
-			cache: true,
-			success: function(result) {
-				$(".ajaxpreview-content").html(result);
-				$(".ajaxpreview").fadeIn("slow").css("opacity","1");
-			}
-		});
-		*/
-	});
+});
 </script>
 <script src="/public/scripts/script.js"></script>
 <script src="/public/scripts/ripple.js"></script>
