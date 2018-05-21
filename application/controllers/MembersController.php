@@ -3,70 +3,94 @@ namespace application\controllers;
 
 use application\core\Controller;
 
-class MembersController extends Controller {
-	private $btn_menu;
-	public function marketAction() {
-		$user = $this->model->getUserInformation();
-		$vars = [
-			'name'         => $user->name,
-			'information'  => $user->inform,
-			'category'     => $user->category,
-			'images'       => $user->img_url,
-			'empty_inform' => 'Вы не указали описание',
-			'empty_category' => 'Вы не указали категорию',
-			'buttons' => [
-				['Главная','/',''],
-				['Редактировать','/members/edit',''],
-				['Мой магазин','/members/market',''],
-				['Выход','#', '#user_exit'],
-			],
-		];		
-		$this->view->layout = 'market';
-		$this->view->render('You market', $vars);
-	}
+class MembersController extends Controller
+{
+   private $btn_menu;
+   public function blogAction()
+   {
+      $blog = $this->model->getUserInformation("blogs");
+      $email_status = $this->model->emailCheck();
 
-	public function editAction() {
-		$this->btn_menu = [
-			['Товары','/members/edit/products/',''],
-			['Дизайн магазина','#','search'],
-			['Информация','#',''],
-			['Мой магазин','/members/market', ''],
-		];
+      $vars = [
+         'email_check'    => $email_status,
+         'name'           => $blog['name'],
+         'information'    => $blog['inform'],
+         'category'       => $blog['category'],
+         'images'         => $blog['img_url'],
+         'empty_inform'   => 'Вы не указали описание',
+         'empty_category' => 'Вы не указали категорию',
+         'buttons'        => [
+            ['Главная', '/', ''],
+            ['Редактировать', '/members/edit', ''],
+            ['Мой блог', '/members/blog', ''],
+            ['Выход', '#', '#user_exit'],
+         ],
+      ];
 
-		$vars = [
-			'buttons' => $this->btn_menu,
-		];
+      $this->view->layout = 'market';
+      $this->view->render('You blog', $vars);
+   }
 
-		$this->view->layout = 'members';
-		$this->view->render('You market', $vars);
-	}
+   public function editAction()
+   {
+      $this->btn_menu = [
+         ['Посты', '/members/edit/posts/', ''],
+         ['Дизайн блога', '#', 'search'],
+         ['Информация', '#', ''],
+         ['Мой блог', '/members/blog', ''],
+      ];
 
-	public function editProductsAction()
-	{
-		$list = $this->model->getProductsList();
+      $vars = [
+         'buttons' => $this->btn_menu,
+      ];
 
-		$this->btn_menu = [
-			['Товары','/members/edit/products/',''],
-			['Дизайн магазина','#','search'],
-			['Информация','#',''],
-			['Мой магазин','/members/market', ''],
-		];
+      $this->view->layout = 'members';
+      $this->view->render('You blog', $vars);
+   }
 
-		$vars = [
-			'empty_list' => 'У вас нет товаров',
-			'list' => $list,
-			'buttons' => $this->btn_menu,
-		];
+   public function editPostsAction()
+   {
+      $list = $this->model->getpostsList();
 
-		if(!empty($_POST)){
-			if(!$this->model->addProduct($_POST)){
-				$this->view->message('Ошибка', $this->model->error);
-			} else {
-				$this->view->message('Готово', $this->model->message.'<br>'.date("H:i:s"));
-			};
-		}
+      $this->btn_menu = [
+         ['Посты', '/members/edit/posts/', ''],
+         ['Дизайн блога', '#', 'search'],
+         ['Информация', '#', ''],
+         ['Мой блог', '/members/blog', ''],
+      ];
 
-		$this->view->layout = 'members';
-		$this->view->render('You market', $vars);
-	}
+      $vars = [
+         'empty_list' => 'У вас нет товаров',
+         'list'       => $list,
+         'buttons'    => $this->btn_menu,
+      ];
+
+      if (!empty($_POST['id'])) {
+         if ($this->model->deletePost($_POST['id'])) {
+            $this->view->message('Пост удален', 'Номер ' . $_POST['id']);
+         };
+      }
+
+      if (!empty($_POST['name'])) {
+         if (!$this->model->addPost($_POST)) {
+            $this->view->message('Ошибка', $this->model->error);
+         } else {
+            $this->view->location('members/edit/posts');
+         };
+      }
+
+      $this->view->layout = 'members';
+      $this->view->render('You blog', $vars);
+   }
+
+   public function emailAction()
+   {
+      $token = $this->route['token'];
+      if (!$this->model->checkEmail($token)) {
+         echo "ошибка подтверждения";
+      } else {
+         $_SESSION['emailVerify'] = true;
+         $this->view->redirect('members/blog');
+      };
+   }
 }
