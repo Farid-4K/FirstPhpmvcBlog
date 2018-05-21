@@ -17,8 +17,33 @@ RewriteRule ^(.*)$ index.php
   
 ### 3. Инструкции по настройке
   1. Создайте новую базу данных mySql.
-  1. Перейдите в **/application/lib/db.php**. Измените настройки соеденения с бд под комментарием *Database setting*.
-  1. Перейдите в **index.php** измените константу *SITENAME* под комментарием *constants*.
+  2. Перейдите в **/application/lib/db.php**. Измените настройки соеденения с бд под комментарием *Database setting*.
+  3. Перейдите в **index.php** измените константу *SITENAME* под комментарием *constants*.
+  4. Убедитесь что в корневой директории присутствует файл *.htaccess*
 
 ### 4. Ошибки
   1. Если нет соеденения с базой данных => Идём в /application/lib/Db.php и меняем конфиг.
+
+### 5. Если вы используете nginx, то конфигурация сервера должна быть такой.
+```
+server {
+server_name Название_сайта;
+root Директория_с_сайтом;
+index index.html index.php;
+
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+  }
+  
+  location ~ \.php$ { 
+    try_files $uri =404; 
+    fastcgi_index index.php;
+    # php порт
+    fastcgi_pass 127.0.0.1:9000;
+    # Либо сокет, который указан в php-fpm
+    # fastcgi_pass unix:/var/run/
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $request_filename;
+  }
+}
+```
