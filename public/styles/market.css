@@ -1,0 +1,21 @@
+.-tasks{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.-task{
+	background: #1ae;
+	cursor: pointer;
+	display: block;
+	color: white;
+	width: 24%;
+	border-radius: 3px;
+	text-align: center;
+	height: 110px;
+	font-size: 1.5em;
+}
+.-task a{
+	padding: 15px;
+	display: block;
+}
