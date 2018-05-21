@@ -20,13 +20,16 @@ class Members extends Model
 
    public function getPostsList()
    {
-      @$list = $this->db->find('posts', 'author = ?', [$_SESSION['authorize']['id']]);
-      if (empty($list)) {
+      if ($this->checkAuth() == 1) {
+         $list = $this->db->find('posts', 'author = ?', [$_SESSION['authorize']['id']]);
+         return $list;
+      } elseif ($this->checkAuth() == 2) {
          $dataJSON = json_decode($_COOKIE['auth']);
          $list = $this->db->find('posts', 'author = ?', [$dataJSON->id]);
          return $list;
+      } else {
+         $this->error = "ошибка";
       }
-      return $list;
    }
 
    public function addPost($post)
@@ -98,5 +101,16 @@ class Members extends Model
       $post = $this->db->findOne('posts', 'id = ?', [$id]);
       $this->db->trash($post);
       return true;
+   }
+
+   public function checkAuth()
+   {
+      if (!empty($_SESSION['authorize']['id'])) {
+         return 1;
+      } elseif (!empty($_COOKIE['auth'])) {
+         return 2;
+      } else {
+         return false;
+      }
    }
 }
