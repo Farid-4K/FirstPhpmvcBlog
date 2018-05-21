@@ -10,6 +10,5 @@
  RewriteBase /
  rewritecond %(REQUEST_FILENAME) !-f
  rewritecond %(REQUEST_FILENAME) !-d
- RewriteCond %{REQUEST_FILENAME} !-l
  RewriteRule ^(.*)$ index.php
  ```
