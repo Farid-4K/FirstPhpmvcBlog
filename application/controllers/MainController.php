@@ -33,11 +33,11 @@ class MainController extends Controller
       if (!empty($_REQUEST)) {
          $find = $this->model->getPost($_REQUEST['card']);
          $vars = [
-            'id'     => htmlentities($find->id),
-            'name'   => htmlentities($find->name),
-            'inform' => htmlentities($find->inform),
-            'image'  => htmlentities($find->image),
-            'date'   => htmlentities($find->date),
+            'id'     => ($find->id),
+            'name'   => ($find->name),
+            'inform' => ($find->inform),
+            'image'  => ($find->image),
+            'date'   => ($find->date),
          ];
       }
       $this->view->render('Blog', $vars);
