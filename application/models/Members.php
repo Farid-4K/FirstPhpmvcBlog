@@ -51,10 +51,7 @@ class Members extends Model
                if (move_uploaded_file($tmp_name, $filename)) {
                   $db->image = $fileUrl;
                   $this->error = 'Успешно';
-               } else {
-                  $this->error = 'Ошибка загрузки фото';
-                  return false;
-               };
+               }
             }
 
             if (!empty($_SESSION['authorize']['id'])) {
