@@ -13,35 +13,32 @@ class Account extends Model
 		$user_data = array(
 			"name"        => htmlspecialchars($_POST['name']),
 			"email"       => htmlspecialchars($_POST['email']),
+			"category"    => htmlspecialchars($_POST['category']),
 			"inform"      => htmlspecialchars($_POST['inform']),
 			"password"    => password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT)
 		);
 
 		$user = $this->db->dispense('users');
-		$blog = $this->db->dispense('blogs');
-		$email = $user_data["email"];
-		$token = hash('tiger192,4', $email);
-		$user -> email = $email;
+		$market = $this->db->dispense('markets');
+		$user -> email = $user_data["email"];
 		$user -> email_reserv = '';
 		$user -> password = $user_data["password"];
-		$user -> token = $token;
-		$user -> verify = json_encode(['phone' => '','emailverify' => 0]);
+		$user -> phone = '';
 		$user -> clock = date('d.m.Y H:i:s');
-		$blog -> name = $user_data["name"];
-		$blog -> inform = $user_data["inform"];
+		$market -> name = $user_data["name"];
+		$market -> inform = $user_data["inform"];
+		$market -> category = $user_data["category"];
 		$img_url = array(
-			'img_post' => '/public/images/standart_blog.jpg',
+			'img_post' => '/public/images/standart_market.jpg',
 			'img_background' => '');
 		$img_url = json_encode($img_url);
-		$blog -> img_url = $img_url;
+		$market -> img_url = $img_url;
 		$this->db->store($user);
-		$this->db->store($blog);
-		mail($email, 'Подтверждение регистрации', '<a href="blog/members/email/'.$token.'">Ссылка</a>');
+		$this->db->store($market);
 		$_SESSION['user'] = $user;
 		$_SESSION['authorize']['id'] = $user['id'];
 		unset($user);
 	}
-
 	public function login()
 	{
 		$user = $this->db->findOne('users', 'email = ?', [$_POST['email']]);
@@ -49,12 +46,9 @@ class Account extends Model
 			$this-> error = 'Пользователь не найден';
 			return false;
 		} else {
-			if (password_verify($_POST['password'], $user-> password) == $user-> password){
+			if(password_verify($_POST['password'], $user-> password) == $user-> password){
 				$_SESSION['user'] = $user;
 				$_SESSION['authorize']['id'] = $user['id'];
-				if (!empty($_POST['remember'])){
-					setcookie('auth', $user, time()+36000, '/');
-				}
 				return true;
 			} else {
 				$this-> error = 'Введенный пароль неверный';
