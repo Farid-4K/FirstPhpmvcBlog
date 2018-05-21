@@ -1,6 +1,6 @@
 # blog
 
-### 1. Настройки .htaccess 
+### 1. Настройки .htaccess
 ```
 addDefaultCharset utf-8
 RewriteEngine on
@@ -14,7 +14,7 @@ RewriteRule ^(.*)$ index.php
   1. База данных MySql версии не ниже **5.7**.
   1. Почтовый сервер.
   1. Соеденение с сетью интернет.
-  
+
 ### 3. Инструкции по настройке
   1. Создайте новую базу данных mySql.
   2. Перейдите в **/application/lib/db.php**. Измените настройки соеденения с бд под комментарием *Database setting*.
@@ -24,7 +24,7 @@ RewriteRule ^(.*)$ index.php
 ### 4. Ошибки
   1. Если нет соеденения с базой данных => Идём в /application/lib/Db.php и меняем конфиг.
 
-### 5. Если вы используете nginx, то конфигурация сервера должна быть такой.
+### 5. Если вы используете nginx.
 ```
 server {
 server_name Название_сайта;
@@ -34,9 +34,9 @@ index index.html index.php;
   location / {
     try_files $uri $uri/ /index.php?$args;
   }
-  
-  location ~ \.php$ { 
-    try_files $uri =404; 
+
+  location ~ \.php$ {
+    try_files $uri =404;
     fastcgi_index index.php;
     # php порт
     fastcgi_pass 127.0.0.1:9000;
