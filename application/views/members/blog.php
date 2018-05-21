@@ -31,7 +31,11 @@
 <div style="opacity: 0;display: none" class="ajaxpreview">
 	<div class="btn-card-exit"></div>
 	<div class="ajaxpreview-content z-depth-5"><br>
-		<div class="h4">На вашу почту отправлено письмо с подтверждением, перейдите по ссылке в письме для того что бы подтвердить свой аккаунт</div>
+		<?php if (@$email_check == false): ?>
+			<div class="h4">На вашу почту отправлено письмо с подтверждением, перейдите по ссылке в письме для того что бы подтвердить свой аккаунт</div>
+			<?php else: ?>
+				<div class="h4">Почта подтверждена</div>
+		<?php endif;?>
 	</div>
 </div>
 <script>

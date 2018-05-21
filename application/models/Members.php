@@ -113,4 +113,15 @@ class Members extends Model
          return false;
       }
    }
+
+   public function emailCheck()
+   {
+      $find = $this->db->findOne('users', ' id = ? ', [$_SESSION['authorize']['id']]);
+      $data = json_decode($find->verify);
+      if ($data['emailverify'] = 1) {
+         return true;
+      } else {
+         return false;
+      }
+   }
 }

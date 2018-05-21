@@ -9,8 +9,10 @@ class MembersController extends Controller
    public function blogAction()
    {
       $user = $this->model->getUserInformation();
+      $email_status = $this->model->emailCheck();
 
       $vars = [
+         'email_check'    => $email_status,
          'name'           => $user['name'],
          'information'    => $user['inform'],
          'category'       => $user['category'],

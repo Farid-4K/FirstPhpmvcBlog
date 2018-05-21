@@ -35,7 +35,7 @@
 			cache: true,
 			success: function(result) {
 				$(".ajaxpreview-content").html(result);
-				$(".ajaxpreview").fadeIn("slow");
+				$(".ajaxpreview").fadeIn("slow").css("opacity","1");
 			}
 		});
 	});

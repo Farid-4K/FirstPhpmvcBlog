@@ -3,7 +3,7 @@
 <div class="add-post-button h4 z-depth-2 hoverable">добавить</div>
 	<div class="fixed-add add-post-form">
 		<div class="-new-post animation tab-content z-depth-3">
-			<form enctype="multipart/form-data" action="/members/edit/posts/" method="post">
+			<form enctype="multipart/form-data" action="/members/edit/" method="post">
 				<div class="h2">Добавить пост</div>
 				<div class="name"><input name="name" placeholder="Название" type="text"></div>
 				<div class="inform">
@@ -21,7 +21,7 @@
 			<div class="lg-12 md-12 xs-12 xm-12">
 				<?php foreach ($list as $key => $value): ?>
 					<div class="tab-content no-padding product z-depth-2 full">
-						<form verify="true" action="/members/edit/posts/" method="post">
+						<form verify="true" action="/members/edit/" method="post">
 							<input name="id" type="text" value="<?=$value['id'];?>" style="display: none">
 							<button class="btn-card-delete delete-post" type="submit" name="delete"></button>
 						</form>
