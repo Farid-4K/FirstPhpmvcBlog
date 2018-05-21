@@ -16,9 +16,9 @@
 	<div data-ripple-color="#fff" id="menu" class="menu material-ripple z-depth-1 hoverable"></div>	
 	<div class="z-depth-5 menu-area">
 		<?php foreach ($buttons as list($title, $href, $id)): ?>
-			<span data-ripple-color="#abd" class="z-depth-1 material-ripple menu-button h3 hoverable">
+			<div data-ripple-color="#abd" class="z-depth-1 material-ripple menu-button h3 hoverable">
 				<a id="<?=$id?>" href="<?=$href?>"><?=$title?></a>
-			</span>
+			</div>
 		<?php endforeach; unset($header, $href, $title); ?>
 	</div>
 	
