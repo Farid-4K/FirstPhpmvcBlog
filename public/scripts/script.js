@@ -18,8 +18,8 @@ $(document).ready(function (){
 		}
 	});
 
-	$(".btn-card-exit").click(function (){
-		$(this).parent().fadeOut();
+	$(".-btn-exit").click(function (){
+		$(this).parent().toggleClass("post-active");
 	});
 
 	$(".notification").click(function (){

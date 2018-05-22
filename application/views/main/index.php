@@ -17,8 +17,8 @@
 
 </div>
 
-<div style="display: none;" class="ajaxpreview">
-	<div class="btn-card-exit"></div>
+<div class="ajaxpreview">
+	<div class="btn-card-exit-post -btn-exit"></div>
 	<div class="ajaxpreview-content z-depth-5">
 	</div>
 </div>
@@ -35,7 +35,7 @@
 			cache: true,
 			success: function(result) {
 				$(".ajaxpreview-content").html(result);
-				$(".ajaxpreview").fadeIn("slow").css("opacity","1");
+				$(".ajaxpreview").toggleClass("post-active");
 			}
 		});
 	});

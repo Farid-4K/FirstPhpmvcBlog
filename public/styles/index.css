@@ -62,8 +62,8 @@
 		height: 100%;
 		padding:25px;
 	}
-	.btn-card-exit:hover,.btn-card-delete:hover{background-color: rgba(0,0,0,0.5);}
-	.btn-card-exit,.btn-card-delete{
+	.btn-card-exit:hover,.btn-card-delete:hover,.-btn-exit{background-color: rgba(0,0,0,0.5);}
+	.btn-card-exit,.btn-card-delete,.-btn-exit{
 		position: absolute;background-size: contain;
 		right: 10px;top: 10px;
 		transition: 0.4s;
@@ -203,9 +203,11 @@
 		width: 90%;
 		word-break: break-all;
 		left: 50%;
-		transform: translate(-50%,-50%);
+		transform:scale(0) translate(-50%,-50%);
+		transition: 0.4s;
 		z-index: 99;
 	}
+	.post-active{transform:scale(1) translate(-50%,-50%)!important;}
 	.ajaxpreview-content{
 		background: #fff;
 		position: relative;

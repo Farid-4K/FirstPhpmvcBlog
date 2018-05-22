@@ -19,6 +19,9 @@ abstract class Controller
       $this->model = $this->loadModel($route['controller']);
    }
 
+   /**
+    * Загрузка модели
+    */
    public function loadModel($name)
    {
       $path = 'application\models\\' . ucfirst($name);
@@ -27,6 +30,9 @@ abstract class Controller
       }
    }
 
+   /*
+    * Проверка уровня доступа
+    */
    public function checkAcl()
    {
       $this->acl = require 'application/acl/' . $this->route['controller'] . '.php';
@@ -41,6 +47,7 @@ abstract class Controller
       }
       return false;
    }
+
    public function isAcl($key)
    {
       return in_array($this->route['action'], $this->acl[$key]);

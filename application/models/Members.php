@@ -7,6 +7,9 @@ use application\core\Model;
 class Members extends Model
 {
 
+   /**
+    * Получение информации о пользователе
+    */
    public function getUserInformation($table)
    {
       @$user = $this->db->findOne($table, 'id = ?', [$_SESSION['authorize']['id']]);
@@ -18,6 +21,9 @@ class Members extends Model
       return $user;
    }
 
+   /**
+    * Выборка всех постов пользователя
+    */
    public function getPostsList()
    {
       if ($this->checkAuth() == 1) {
@@ -32,6 +38,9 @@ class Members extends Model
       }
    }
 
+   /**
+    * Добавление поста
+    */
    public function addPost($post)
    {
       /* Проверка данных */
@@ -76,6 +85,9 @@ class Members extends Model
       }
    }
 
+   /**
+    * Редактирование поста
+    */
    public function editPost($post)
    {
       if ((!empty($post['editName'])) or (!empty($post['editInform']))) {
@@ -103,6 +115,9 @@ class Members extends Model
       }
    }
 
+   /**
+    * Подтверждение почты
+    */
    public function checkEmail($token)
    {
       $data = $this->db->findOne('users', 'token = ?', [$token]);
@@ -119,6 +134,9 @@ class Members extends Model
       return true;
    }
 
+   /**
+    * Удаление поста пользователя
+    */
    public function deletePost($id)
    {
       $db = $this->db->dispense('posts');
@@ -127,6 +145,9 @@ class Members extends Model
       return true;
    }
 
+   /**
+    * Проверка авторизации
+    */
    public function checkAuth()
    {
       if (!empty($_SESSION['authorize']['id'])) {
@@ -138,6 +159,9 @@ class Members extends Model
       }
    }
 
+   /**
+    * Проверка подтверждения почты
+    */
    public function emailCheck()
    {
       $find = $this->db->findOne('users', ' id = ? ', [$_SESSION['authorize']['id']]);

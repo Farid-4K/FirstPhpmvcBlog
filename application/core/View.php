@@ -17,6 +17,9 @@ class View
       $this->path = $route['controller'] . '/' . $route['action'];
    }
 
+   /**
+    * Рендер страницы
+    */
    public function render($pageTitle, $vars = [])
    {
       extract($vars);
@@ -32,6 +35,9 @@ class View
       }
    }
 
+   /**
+    * обработка HTML кодов ошибок
+    */
    public static function errorCode($code)
    {
       http_response_code($code);
@@ -69,11 +75,14 @@ class View
       }
    }
 
+   /**
+    * Форматирование вывода
+    */
    public function textParsePost($data)
    {
-      $string_1 = preg_replace('~[*]{2}([\w\W]+)[*]{2}~', '<strong>$1</strong>', $data);
-      $string_2 = preg_replace('~[*]{1}([\w\W]+)[*]{1}~', '<i>$1</i>', $string_1);
-      $string_3 = preg_replace('~[*]{3}([\w\W]+)[*]{3}~', '<tt>$1</tt>', $string_2);
+      $string_1 = preg_replace('~[*]{3}([\w\W]+)[*]{3}~', '<tt>$1</tt>', $data);
+      $string_2 = preg_replace('~[*]{2}([\w\W]+)[*]{2}~', '<strong>$1</strong>', $string_1);
+      $string_3 = preg_replace('~[*]{1}([\w\W]+)[*]{1}~', '<i>$1</i>', $string_2);
       return $string_3;
    }
 }

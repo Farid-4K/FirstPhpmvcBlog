@@ -7,6 +7,9 @@ use application\core\Model;
 class Account extends Model
 {
 
+   /**
+    * Регистрация
+    */
    public function registration()
    {
 
@@ -43,6 +46,9 @@ class Account extends Model
       unset($user);
    }
 
+   /**
+    * Авторизация
+    */
    public function login()
    {
       $user = $this->db->findOne('users', 'email = ?', [$_POST['email']]);
@@ -64,6 +70,9 @@ class Account extends Model
       }
    }
 
+   /**
+    * Валидация формы авторизации
+    */
    public function validateFormLog()
    {
       $find = $this->db->findOne('users', 'email = ?', [htmlspecialchars($_POST['email'])]);
@@ -74,6 +83,10 @@ class Account extends Model
          return true;
       }
    }
+
+   /**
+    * Валидация формы регистрации
+    */
    public function validateFormReg($post)
    {
       $find = $this->db->findOne('users', 'email = ?', [htmlspecialchars($_POST['email'])]);
