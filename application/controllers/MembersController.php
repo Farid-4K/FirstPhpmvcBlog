@@ -35,8 +35,6 @@ class MembersController extends Controller
    {
       $this->btn_menu = [
          ['Посты', '/members/edit/posts/', ''],
-         ['Дизайн блога', '#', 'search'],
-         ['Информация', '#', ''],
          ['Мой блог', '/members/blog', ''],
       ];
 
@@ -54,8 +52,6 @@ class MembersController extends Controller
 
       $this->btn_menu = [
          ['Посты', '/members/edit/posts/', ''],
-         ['Дизайн блога', '#', 'search'],
-         ['Информация', '#', ''],
          ['Мой блог', '/members/blog', ''],
       ];
 

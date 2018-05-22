@@ -116,6 +116,8 @@ class Members extends Model
       $find = $this->db->findOne('users', ' id = ? ', [$_SESSION['authorize']['id']]);
       if ($find->token != null) {
          return true;
-      } else {return false;}
+      } else {
+        return false;
+      }
    }
 }
