@@ -76,6 +76,33 @@ class Members extends Model
       }
    }
 
+   public function editPost($post)
+   {
+      if ((!empty($post['editName'])) or (!empty($post['editInform']))) {
+         $db = $this->db->dispense('posts');
+         $blog = $this->db->findOne('posts', 'id = ?', [$post['editID']]);
+         $name = htmlspecialchars($post['editName']);
+         $inform = htmlspecialchars($post['editInform']);
+         if ((!empty($_FILES))) {
+            $tmp_name = $_FILES["editFile"]["tmp_name"];
+            $name_img = basename($_FILES["editFile"]['name']);
+            $hash = date('H_i_s') . md5($name_img);
+            $fileUrl = '/public/users/product/' . $hash . '.jpg';
+            $filename = ROOT . $fileUrl;
+            if (move_uploaded_file($tmp_name, $filename)) {
+               $blog->image = $fileUrl;
+               $this->error = 'Успешно';
+            }
+         }
+         $blog->name = $name;
+         $blog->inform = $inform;
+         $blog->date = date("Y:m:d:H:i:s");
+         $this->db->store($blog);
+         $this->error = 'Успешно';
+         return true;
+      }
+   }
+
    public function checkEmail($token)
    {
       $data = $this->db->findOne('users', 'token = ?', [$token]);
@@ -116,6 +143,6 @@ class Members extends Model
       $find = $this->db->findOne('users', ' id = ? ', [$_SESSION['authorize']['id']]);
       if ($find->token != null) {
          return true;
-      } else {return false}
+      } else {return false;}
    }
 }

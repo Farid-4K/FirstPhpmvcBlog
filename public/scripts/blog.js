@@ -1,6 +1,6 @@
 
-$(".btn-card-delete").click(function (event){
-	$(this).parent().parent().animate({
+$(".btn-post-delete").click(function (event){
+	$(this).parent().parent().parent().parent().animate({
 		opacity: 0,
 	}, 310, "swing", function (){
 		$(this).slideUp("slow");
@@ -12,5 +12,15 @@ $(".post-open").click(function(){
 });
 
 $(".add-post-button").click(function() {
-	$(".add-post-form").slideToggle("slow");
+	$(".addpostform").toggleClass("toggle-left");
+});
+
+$(".btn-post-edit").click(function() {
+	$(".editpostform").toggleClass("toggle-left");
+	var id = $(".btn-post-edit").parent().children('input[name=postID]').attr("value");
+	$("input[name=editID]").attr("value", id);
+});
+
+$(".btn-form-exit").click(function(){
+	$(".editpostform").toggleClass("toggle-left");
 });

@@ -71,9 +71,9 @@ class View
 
    public function textParsePost($data)
    {
-      $one = preg_replace('~[*]{2}([\w\W]+)[*]{2}~', '<strong>$1</strong>', $data);
-      $str = preg_replace('~[_]{2}([\w\W]+)[_]{2}~', '<i>$1</i>', $one);
-      $arr = preg_replace('~[`]{2}([\w\W]+)[`]{2}~', '<tt>$1</tt>', $str);
-      return $arr;
+      $string_1 = preg_replace('~[*]{2}([\w\W]+)[*]{2}~', '<strong>$1</strong>', $data);
+      $string_2 = preg_replace('~[*]{1}([\w\W]+)[*]{1}~', '<i>$1</i>', $string_1);
+      $string_3 = preg_replace('~[*]{3}([\w\W]+)[*]{3}~', '<tt>$1</tt>', $string_2);
+      return $string_3;
    }
 }

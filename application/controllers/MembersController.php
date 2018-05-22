@@ -67,6 +67,12 @@ class MembersController extends Controller
          };
       }
 
+      if (!empty($_POST['editName'])) {
+         if ($this->model->editPost($_POST)) {
+            $this->view->location('members/edit/posts');
+         };
+      }
+
       if (!empty($_POST['name'])) {
          if (!$this->model->addPost($_POST)) {
             $this->view->message('Ошибка', $this->model->error);

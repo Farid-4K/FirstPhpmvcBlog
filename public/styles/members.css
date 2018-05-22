@@ -6,12 +6,30 @@ body{position: relative; scroll-behavior: unset;}
 	display: none;
 	z-index: 50;
 }
+.toggle-left{
+	transform: scale(1)!important;
+}
+.btn-form-exit:hover{background-color: rgba(0,0,0,0.5);}
+.btn-form-exit{
+	position: absolute;background-size: contain;
+	right: 10px;top: 10px;
+	transition: 0.4s;
+	z-index: 5;
+	border-radius: 2px;
+	width: 36px;
+	height: 36px;
+	filter: invert(1);
+	background: url(/public/images/ic_close.svg) no-repeat center center;
+}
+.margin-bottom-page{margin-top: 90px;width: 100%;display: inline-block;}
 .add-post-form{
-	display: none;
+	left: 20px;
+	transition: 0.4s ease;
 	width: 62%;
 	z-index: 50;
-	left: 20px;
 	top: 80px;
+	border-radius: 2px;
+	transform: scale(0);
 }
 .animation{transition: 0.5s;}
 .text-area-y{
@@ -32,6 +50,17 @@ body{position: relative; scroll-behavior: unset;}
 	margin: 0;
 	padding: 11px;
 }
+.in-post-text form{display: inline-block;}
+.edit-post-button{cursor: pointer;}
+.btn-post-delete,.btn-post-edit{border: 0;}
+.button{
+	padding: 8px;
+	font-size: 1.2em;
+	border-radius: 2px;
+	margin: 10px;
+	display: inline-block;
+	background: #fff;
+}
 .in-post-text .-title{
 	padding-bottom: 6px;
 	border-bottom: 3px solid #aaa;
@@ -43,9 +72,6 @@ body{position: relative; scroll-behavior: unset;}
 .-new-post{
 	height: auto;
 	width: 100%;
-}
-.delete-post {
-	border: 0;
 }
 .members .-tasks{
 	display: flex;
@@ -102,7 +128,7 @@ input[type=file]{display: none}
 }
 .product .img{
 	background-size:cover!important;
-	border-radius: 4px;
+	border-radius: 3px;
 	margin: 0 auto;
 	height: 300px;
 	transition: 0.3s;
@@ -114,10 +140,12 @@ input[type=file]{display: none}
 }
 @media (min-width:768px) and (max-width:991px){
 	.add-post-form{width: 550px;}
+	.-new-post textarea{height: 47vh!important}
 }
 @media (min-width:550px) and (max-width:767px){
 	.add-post-form{width: 500px;}
 }
 @media (min-width:320px) and (max-width:549px){
-	.add-post-form{width: 320px;}
+	.add-post-form{width: 280px;}
+	.-new-post textarea{height: 20vh!important}
 }

@@ -11,10 +11,10 @@
 	a:visited{color: inherit; text-decoration: none;}
 	a{color: inherit;text-decoration: none;outline: none!important;}
 	a:hover{border-bottom:0!important;outline: 0; color: inherit;text-decoration: none;}
-	.a{text-decoration:none; position:relative; color:inherit; transition: 0.4s;}
-	.a:before{content: "";position: absolute;background: currentColor; top:100%;left: 0; height: .15em; width: 100%;transition: 0.5s ease; transform: scaleX(0);transform-origin: bottom left;}
+	.a{text-decoration:none; position:relative; color:inherit;}
+	.a:before{content: "";position: absolute;background: currentColor; top:106%;left: 0; height: 10%; width: 100%;transition: 0.4s ease; transform: scaleX(0);transform-origin: bottom left;}
 	.a:hover{text-decoration: none;color: inherit;}
-	.a:hover::before{text-decoration: none;transform: scaleX(1);transform-origin: bottom left;}
+	.a:hover::before{transform: scaleX(1);transform-origin: bottom left;}
 	.inline{display: inline-block!important;}
 	/** FORMS **/
 	.menu{

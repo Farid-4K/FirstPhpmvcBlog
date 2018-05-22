@@ -8,6 +8,8 @@ body > div:last-child {
 ADAPTIVE SETTING
 *******************/
 @media(max-width: 9999px){
+	.h-1{height: 360px;}.h-2{height: 300px;}.h-3{height: 240px;}.h-4{height: 180px;}
+	.h-5{height: 150px;}.h-6{height: 110px;}.h-7{height: 60px;}.h-8{height: 30px;}
 	.block-menu > span{display: block;margin: 15px auto;text-align: center;}
 	.account-background{background: linear-gradient(45deg, #47b7d7, #00093b) no-repeat center center;overflow: hidden;}
 	.block-menu{padding: 40px 1em !important;}
@@ -15,18 +17,22 @@ ADAPTIVE SETTING
 	html,body{height: 100%;}
 	.text-white{color: white!important;}
 	.grid{display: grid;}
+	ul.ul > li{list-style: none;}
+	.hr{display: block;height: 2px;background-color: #c5c5c5;border-radius:2px;width: 100%;}
 	input, button, textarea{outline: none;}
 	.pointer{cursor: pointer;}
+	.m-b{margin-bottom: 20px;}
 	.full-h{height: 100%;}
 	.container.margin{margin-top: 10px;}
 	.full-w{width: 100%;}
+	.no-margin{margin: 0!important}
 	.no-padding{padding: 0!important;}
 	.fixed-add{position: fixed;}
 	.tab-content-min{
 		position: relative;
 		padding: 5px 20px 15px 20px;
 		background: #fff;
-		margin-bottom: 17px;
+		margin-bottom: 20px;
 		display: inline-block;
 	}
 	.tab-content{
@@ -34,7 +40,7 @@ ADAPTIVE SETTING
 		border-radius: 3px;
 		padding: 20px;
 		background: #fff;
-		margin-bottom: 17px;
+		margin-bottom: 20px;
 		display: inline-block;
 	}
 	.tab-in{padding:20px;}
@@ -46,7 +52,6 @@ ADAPTIVE SETTING
 		padding: 15px;
 		background: #fff;
 		border-radius: 3px;
-		margin-bottom: 15px;
 		display: inline-block;
 	}
 	.tab-grid-market{
@@ -61,7 +66,6 @@ ADAPTIVE SETTING
 		padding: 10px;
 		border-radius: 3px;
 		background: #fff;
-		margin-bottom: 15px;
 		display: inline-block;
 	}
 	.tab-grid-market{
@@ -77,7 +81,6 @@ ADAPTIVE SETTING
 		overflow: hidden;
 		border-radius: 3px;
 		background: #fff;
-		margin-bottom: 15px;
 		display: inline-block;
 	}
 	.tab-grid-market{
