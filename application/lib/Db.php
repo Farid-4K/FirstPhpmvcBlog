@@ -8,13 +8,7 @@ class Db extends R
 {
    public function __construct()
    {
-      /* Database setting */
-      $db_host = "localhost";
-      $db_name = "blog";
-      $db_user = "root";
-      $db_password = "123";
-
-      R::setup('mysql:host=' . $db_host . ';dbname=' . $db_name, $db_user, $db_password);
+      R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
       if (!R::testConnection()) {
          exit('Нет соединения с базой данных');
       }
