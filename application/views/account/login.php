@@ -24,5 +24,5 @@
 </div>
 
 <div id="notification"></div>
-<script src="/public/scripts/form.js"></script>
-<script src="/public/scripts/script.js"></script>
+<script src="/scripts/form.js"></script>
+<script src="/scripts/script.js"></script>

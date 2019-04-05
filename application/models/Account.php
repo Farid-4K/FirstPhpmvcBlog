@@ -33,7 +33,7 @@ class Account extends Model
       $blog->name = $user_data["name"];
       $blog->inform = $user_data["inform"];
       $img_url = [
-         'img_post'       => '/public/images/standart_blog.jpg',
+         'img_post'       => '/images/standart_blog.jpg',
          'img_background' => '',
       ];
       $img_url = json_encode($img_url);

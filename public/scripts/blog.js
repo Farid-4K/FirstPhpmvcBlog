@@ -1,14 +1,13 @@
-
-$(".btn-post-delete").click(function (event){
-	$(this).parent().parent().parent().parent().animate({
+$(".btn-post-delete").click(function (){
+	$(this).parents('.tab-content').animate({
 		opacity: 0,
-	}, 310, "swing", function (){
+	}, 100, "swing", function (){
 		$(this).slideUp("slow");
 	});
 });
 
 $(".post-open").click(function(){
-	$(this).parent().children(".in-post-text").slideToggle();
+	$(this).parent().children(".in-post-text").slideToggle(220);
 });
 
 $(".add-post-button").click(function() {

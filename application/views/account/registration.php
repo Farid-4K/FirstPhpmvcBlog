@@ -30,6 +30,6 @@
 
 </div>
 
-<script src="/public/scripts/ripple.js"></script>
-<script src="/public/scripts/form.js"></script>
-<script src="/public/scripts/script.js"></script>
+<script src="/scripts/ripple.js"></script>
+<script src="/scripts/form.js"></script>
+<script src="/scripts/script.js"></script>

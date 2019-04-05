@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>403</title>
-	<link rel="stylesheet" href="/public/styles/grid.css">
+	<link rel="stylesheet" href="/styles/grid.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/public/styles/style.css">
+	<link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
 	<div class="container">

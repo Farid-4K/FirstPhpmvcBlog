@@ -1,151 +1,250 @@
-.members .menu-area{background: #fff}
-.members .menu-button{background: #19a}
-body.members{background: #157 no-repeat; background-size: cover;}
-body{position: relative; scroll-behavior: unset;}
-.in-post-text{
-	display: none;
-	z-index: 50;
+.members .menu-area {
+    background: #fff
 }
-.toggle-left{
-	transform: scale(1)!important;
+
+.members .menu-button {
+    background: #19a
 }
-.btn-form-exit:hover{background-color: rgba(0,0,0,0.5);}
-.btn-form-exit{
-	position: absolute;background-size: contain;
-	right: 10px;top: 10px;
-	transition: 0.4s;
-	z-index: 5;
-	border-radius: 2px;
-	width: 36px;
-	height: 36px;
-	filter: invert(1);
-	background: url(/public/images/ic_close.svg) no-repeat center center;
+
+body.members {
+    background: #157 no-repeat;
+    background-size: cover;
 }
-.margin-bottom-page{margin-top: 90px;width: 100%;display: inline-block;}
-.add-post-form{
-	left: 20px;
-	transition: 0.4s ease;
-	width: 62%;
-	z-index: 50;
-	top: 80px;
-	border-radius: 2px;
-	transform: scale(0);
+
+body {
+    position: relative;
+    scroll-behavior: unset;
 }
-.animation{transition: 0.5s;}
-.text-area-y{
-	overflow-y: scroll;
-	transition: 0.5s!important;
+
+.in-post-text {
+    display: none;
+    z-index: 50;
 }
-.add-post-button{
-	width: 123px;
-	cursor: pointer;
-	border-radius: 3px;
-	top: 20px;
-	left: 20px;
-	text-align: center;
-	height: 43px;
-	background: #fff;
-	position: fixed;
-	z-index: 9999;
-	margin: 0;
-	padding: 11px;
+
+.btn-form-exit:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.in-post-text form{display: inline-block;}
-.edit-post-button{cursor: pointer;}
-.btn-post-delete,.btn-post-edit{border: 0;}
-.button{
-	padding: 8px;
-	font-size: 1.2em;
-	border-radius: 2px;
-	margin: 10px;
-	display: inline-block;
-	background: #fff;
+
+.btn-form-exit {
+    position: absolute;
+    background-size: contain;
+    right: 10px;
+    top: 10px;
+    transition: 0.4s ease;
+    z-index: 5;
+    border-radius: 2px;
+    width: 36px;
+    height: 36px;
+    filter: invert(1);
+    background: url(/images/ic_close.svg) no-repeat center center;
 }
-.in-post-text .-title{
-	padding-bottom: 6px;
-	border-bottom: 3px solid #aaa;
+
+.margin-bottom-page {
+    margin-top: 90px;
+    width: 100%;
+    display: inline-block;
 }
-.in-post-text .-inform{
-	height: 450px;
-	overflow-y: scroll;
+
+.add-post-form {
+    left: 20px;
+    transition: 400ms ease;
+    width: 62%;
+    z-index: 50;
+    top: 80px;
+    transform-origin: top left;
+    pointer-events: none;
+    border-radius: 2px;
+    transform: scale(0);
 }
-.-new-post{
-	height: auto;
-	width: 100%;
+
+.buttons-line {
+    margin-top: 18px;
 }
-.members .-tasks{
-	display: flex;
+
+.post-open {
+    user-select: none;
+    cursor: pointer;
+    transition: background 0.1s ease-out;
 }
-.-new-post .buttons{
-	display: block;
-	margin: 0 auto;
-	width: 230px;
+
+.post-open:hover {
+    background: #ddd;
 }
-.-new-post .h2{text-align: center}
+
+.toggle-left {
+    pointer-events: all;
+    transform-origin: center center;
+    transform: scale(1);
+}
+
+.animation {
+    transition: 0.5s;
+}
+
+.text-area-y {
+    overflow-y: scroll;
+    transition: 0.5s !important;
+}
+
+.add-post-button {
+    width: 123px;
+    cursor: pointer;
+    border-radius: 3px;
+    top: 20px;
+    left: 20px;
+    text-align: center;
+    height: 43px;
+    background: #fff;
+    position: fixed;
+    z-index: 9999;
+    margin: 0;
+    padding: 11px;
+}
+
+.in-post-text form {
+    display: inline-block;
+}
+
+.edit-post-button {
+    cursor: pointer;
+}
+
+.btn-post-delete, .btn-post-edit {
+    border: 0;
+}
+
+.button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 2px;
+    margin: 10px;
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+    background: #1c82b4;
+}
+
+.in-post-text .-title {
+    padding-bottom: 12px;
+    border-bottom: 3px solid #aaa;
+}
+
+.in-post-text .-inform {
+    padding-top: 8px;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
+.-new-post {
+    height: auto;
+    width: 100%;
+}
+
+.members .-tasks {
+    display: flex;
+}
+
+.-new-post .buttons {
+    display: block;
+    margin: 0 auto;
+    width: 230px;
+}
+
+.-new-post .h2 {
+    text-align: center;
+}
+
 .-new-post input[type=text],
-.-new-post textarea{
-	border: 0;
-	border-bottom: 3px solid #1ae;
-	height: 54px;
-	padding: 10px;
-	display: block;
-	width: 100%;
-	margin-bottom: 10px;
-	background: rgba(170,170,170,0.1);
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-	transition: 0.4s;
+.-new-post textarea {
+    border: 0;
+    border-bottom: 3px solid #1ae;
+    height: 54px;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: rgba(170, 170, 170, 0.1);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    transition: 0.4s;
 }
-.-new-post textarea{height: 47vh!important}
-.-new-post button{
-	font-size: 16px;
-	border-radius: 4px;
-	border: none;
-	margin: 0 10px 10px 10px;
-	padding: 10px;
-	height: auto;
-	display: inline-block;
-	width: 210px;
-	color: #fff;
-	background-color: #118a99;
+
+.-new-post textarea {
+    height: 40vh !important
 }
-input[type=file]{display: none}
-.-new-post .file > label{
-	cursor: pointer;
-	font-size: 18px;
-	border-radius: 6px;
-	padding: 10px;
-	height: auto;
-	padding-left: 15px;
-	display: inline-block;
-	width: 210px;
-	margin:10px;
-	color: #fff;
-	background: url(/public/images/ic_photo_white.png) no-repeat;
-	background-position: 165px;
-	background-size: 28px;
-	background-color: #118a99;
+
+.-new-post button {
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    margin: 0 10px 10px 10px;
+    padding: 10px;
+    height: auto;
+    display: inline-block;
+    width: 210px;
+    color: #fff;
+    background-color: #118a99;
 }
-.product .img{
-	background-size:cover!important;
-	border-radius: 3px;
-	margin: 0 auto;
-	height: 300px;
-	transition: 0.3s;
-	width: 100%;
-	cursor:pointer;
+
+input[type=file] {
+    display: none
 }
-@media (min-width:992px) and (max-width:1199px){
-	.add-post-form{width: 700px;}
+
+.-new-post .file > label {
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 6px;
+    height: auto;
+    padding: 10px 10px 10px 15px;
+    display: inline-block;
+    width: 210px;
+    margin: 10px;
+    color: #fff;
+    background: #118a99 url(/images/ic_photo_white.png) no-repeat 165px;
+    background-size: 28px;
 }
-@media (min-width:768px) and (max-width:991px){
-	.add-post-form{width: 550px;}
-	.-new-post textarea{height: 47vh!important}
+
+.product .img {
+    background-size: cover !important;
+    border-radius: 3px;
+    margin: 0 auto;
+    height: 300px;
+    transition: 0.3s;
+    width: 100%;
+    cursor: pointer;
 }
-@media (min-width:550px) and (max-width:767px){
-	.add-post-form{width: 500px;}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .add-post-form {
+        width: 700px;
+    }
 }
-@media (min-width:320px) and (max-width:549px){
-	.add-post-form{width: 280px;}
-	.-new-post textarea{height: 20vh!important}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .add-post-form {
+        width: 550px;
+    }
+
+    .-new-post textarea {
+        height: 47vh !important
+    }
+}
+
+@media (min-width: 550px) and (max-width: 767px) {
+    .add-post-form {
+        width: 500px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 549px) {
+    .add-post-form {
+        width: 280px;
+    }
+
+    .-new-post textarea {
+        height: 20vh !important
+    }
 }
